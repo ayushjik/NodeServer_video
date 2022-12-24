@@ -34,6 +34,10 @@ io.on("connection", (socket) => {
 		console.log("data:-"+data +" data.signal:-"+data.signal)
 		io.to(data.to).emit("callAccepted", data.signal)
 	});
+	socket.on("message",(zoom)=>{
+		socket.broadcast.emit('message',zoom)
+		console.log("its Work for sending",zoom)
+	})
 });
 
 server.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
