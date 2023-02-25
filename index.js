@@ -16,13 +16,7 @@ const PORT = process.env.PORT || 5000;
 app.get('/', (req, res) => {
 	res.send('Running');
 });
-app.get('/StepCount', (req, res) => {
-	const value = req.body.value;
-	res.send(`StepCount Value= ${value}`);
-	console.log(`Received value: ${value}`);
 
-	// res.status(200).send('Value received');
-});
 
 io.on("connection", (socket) => {
 	socket.emit("me", socket.id);
